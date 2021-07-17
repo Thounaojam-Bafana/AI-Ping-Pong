@@ -1,0 +1,20 @@
+.heading{
+    width: 95%;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px violet;
+    margin-bottom: 5px;
+}
+.heading h3{
+    display: inline;
+    font-weight: bolder;
+}
+.heading button{
+    float: right;
+    border: 1px solid white;
+}
+#play{
+    font-size: 23px;
+    padding-left: 85px;
+    padding-right: 85px;
+}
