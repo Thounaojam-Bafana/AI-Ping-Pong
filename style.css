@@ -13,8 +13,22 @@
     float: right;
     border: 1px solid white;
 }
-#play{
+#play,.restart{
     font-size: 23px;
     padding-left: 85px;
     padding-right: 85px;
+}
+#instructions{
+    border: 1px solid black;
+}
+.instruction_images{
+    display: inline-block;
+    width: 35%;
+    height: 150px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.modal-header{
+    background-color: white;
 }
