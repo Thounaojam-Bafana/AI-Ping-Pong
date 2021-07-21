@@ -13,7 +13,7 @@
     float: right;
     border: 1px solid white;
 }
-#play,.restart{
+#play{
     font-size: 23px;
     padding-left: 85px;
     padding-right: 85px;
@@ -31,4 +31,25 @@
 }
 .modal-header{
     background-color: white;
+}
+canvas{
+    border: 5px ridge wheat;
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px gray;
+    margin-bottom: 20px;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    color: white;
+    width: 100%;
+    background-color: grey;
+    line-height: 3;
+    text-align: center;
+}
+.restart{
+    font-size: 23px;
+    padding-left: 85px;
+    padding-right: 85px;
+    margin-bottom: 50px;
 }
