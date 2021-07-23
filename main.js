@@ -9,6 +9,8 @@ var paddle1Y;
 var  playerscore =0;
 var audio1;
 var pcscore =0;
+
+var rightWristX,rightWristY,scoreRightWrist;
 //ball x and y and speedx speed y and radius
 var ball = {
     x:350/2,
@@ -26,6 +28,7 @@ function setup(){
   video.hide();
 
   poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
 }
 
 
@@ -39,6 +42,12 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
+
+ if(scoreRightWrist >= 0.2){
+   fill("#e31717");
+   stroke("#e31717");
+   circle(rightWristX, rightWristY, 20);
+ }
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
@@ -71,6 +80,17 @@ function draw(){
 
 function modelLoaded(){
   console.log("Model Loaded!");
+}
+
+function gotPoses(results){
+  if(results.length > 0){
+    console.log(results);
+    scoreRightWrist = results[0].pose.keypoints[10].score;
+    rightWristX = results[0].pose.rightWrist.x;
+    rightWristY = results[0].pose.rightWrist.y;
+    console.log("Right Wrist X = " + rightWristX + ", Right Wrist Y = " + rightWristY);
+    console.log("Score Right Wrist = " + scoreRightWrist);
+  }
 }
 
 //function reset when ball does notcame in the contact of padde
