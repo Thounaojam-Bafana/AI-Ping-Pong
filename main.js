@@ -1,3 +1,4 @@
+var status = "";
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -31,51 +32,57 @@ function setup(){
   poseNet.on('pose', gotPoses);
 }
 
+function startGame(){
+  status = "start";
+  document.getElementById("status").innerHTML = "Game is Loaded!"
+}
 
 function draw(){
-  image(video, 0, 0, 700, 600);
+  if(status == "start"){
+    image(video, 0, 0, 700, 600);
 
- fill("black");
- stroke("black");
- rect(680,0,20,700);
-
- fill("black");
- stroke("black");
- rect(0,0,20,700);
-
- if(scoreRightWrist >= 0.2){
-   fill("#e31717");
-   stroke("#e31717");
-   circle(rightWristX, rightWristY, 20);
- }
- 
-   //funtion paddleInCanvas call 
-   paddleInCanvas();
- 
-   //left paddle
-   fill(250,0,0);
-    stroke(0,0,250);
-    strokeWeight(0.5);
-   paddle1Y = mouseY; 
-   rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
+    fill("black");
+    stroke("black");
+    rect(680,0,20,700);
    
+    fill("black");
+    stroke("black");
+    rect(0,0,20,700);
    
-    //pc computer paddle
-    fill("#FFA500");
-    stroke("#FFA500");
-   var paddle2y =ball.y-paddle2Height/2;  rect(paddle2Y,paddle2y,paddle2,paddle2Height,100);
+    if(scoreRightWrist >= 0.2){
+      fill("#e31717");
+      stroke("#e31717");
+      circle(rightWristX, rightWristY, 20);
+    }
     
-    //function midline call
-    midline();
+      //funtion paddleInCanvas call 
+      paddleInCanvas();
     
-    //funtion drawScore call 
-   drawScore();
-   
-   //function models call  
-   models();
-   
-   //function move call which in very important
-    move();
+      //left paddle
+      fill(250,0,0);
+       stroke(0,0,250);
+       strokeWeight(0.5);
+      paddle1Y = mouseY; 
+      rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
+      
+      
+       //pc computer paddle
+       fill("#FFA500");
+       stroke("#FFA500");
+      var paddle2y =ball.y-paddle2Height/2;  rect(paddle2Y,paddle2y,paddle2,paddle2Height,100);
+       
+       //function midline call
+       midline();
+       
+       //funtion drawScore call 
+      drawScore();
+      
+      //function models call  
+      models();
+      
+      //function move call which in very important
+       move();
+  }
 }
 
 function modelLoaded(){
